@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp01-deployment
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  template:
+    spec:
+      containers:
+      - name: demoapp01
+        image: 050400155701.dkr.ecr.us-east-1.amazonaws.com/marcin-cicd-demo:241f178
+        ports:
+        - containerPort: 5000
+

@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+   env: dev
+bases:
+- ../base
+namePrefix: dev-
+
+
+replicas:
+- name: demoapp01-deployment
+  count: 1
+
+
+patches:
+- target:
+    kind: Ingress
+    name: demoapp01-ingress
+  path: ingress-patch.yml 
+
+images:
+- name: demoapp01
+  newName: 050400155701.dkr.ecr.us-east-1.amazonaws.com/marcin-cicd-demo
+  newTag: 241f178
