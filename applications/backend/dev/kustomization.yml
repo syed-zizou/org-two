@@ -7,7 +7,7 @@ resources:
 namePrefix: dev-
 replicas:
 - name: nginx-deployment
-  count: 2
+  count: 4
 images:
 - name: nginx
   newTag: 1.14.2
